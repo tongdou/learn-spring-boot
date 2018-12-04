@@ -17,6 +17,7 @@
 
     <modules>
         <module>design-pattern</module>
+        <module>interview-question</module>
     </modules>
 
     <properties>
