@@ -80,7 +80,7 @@ CMS回收器只在老年代使用，使用的是“标记-清除”算法。
 /export/servers/jdk1.6.0_25/bin/java -Djava.util.logging.config.file=/export/Instances/vc3_afs_vc/server1/conf/logging.properties -Djava.library.path=/usr/local/lib -server -Xms4096m -Xmx4096m -XX:MaxPermSize=1024m -XX:+UnlockExperimentalVMOptions -Djava.awt.headless=true -Dsun.net.client.defaultConnectTimeout=60000 -Dsun.net.client.defaultReadTimeout=60000 -Djmagick.systemclassloader=no -Dnetworkaddress.cache.ttl=300 -Dsun.net.inetaddr.ttl=300 -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/export/Instances/vc3_afs_vc/server1/logs -XX:ErrorFile=/export/Instances/vc3_afs_vc/server1/logs/java_error_%p.log -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/export/servers/tomcat6.0.33/endorsed -classpath /export/servers/tomcat6.0.33/bin/bootstrap.jar -Dcatalina.base=/export/Instances/vc3_afs_vc/server1 -Dcatalina.home=/export/servers/tomcat6.0.33 -Djava.io.tmpdir=/export/Instances/vc3_afs_vc/server1/temp org.apache.catalina.startup.Bootstrap -config /export/Instances/vc3_afs_vc/server1/conf/server.xml start
 
 
-###2.请写出你了解的并发模型模式(例如生产者费者模式)，并说明哪些模型在项目中使用了。
+#2.请写出你了解的并发模型模式(例如生产者费者模式)，并说明哪些模型在项目中使用了。
 
 2.1常用的有：Future模型、Master-Worker模式和生产者-消费模式
 - Future模型特点是：主线程创建多个FutureTask任务并提交到线程池执行，主线程可以继续执行其他的若干操作后，再去调用FutureTask的get方法获取结果数据。
