@@ -82,6 +82,22 @@ CMS回收器只在老年代使用，使用的是“标记-清除”算法。
 
 ###2.请写出你了解的并发模型模式(例如生产者费者模式)，并说明哪些模型在项目中使用了。
 
+2.1常用的有：Future模型、Master-Worker模式和生产者-消费模式
+- Future模型特点是：主线程创建多个FutureTask任务并提交到线程池执行，主线程可以继续执行其他的若干操作后，再去调用FutureTask的get方法获取结果数据。
+- Master-Worker模式特点是：一种将串行任务并行化的方案，被分解的子任务在系统中可以被并行处理
+- 生产者-消费模式模式特点是：生产者线程负责提交用户请求，消费者线程负责具体处理生产者提交的任务。两者之间通过共享队列去进行通信。
+
+我在跑批任务中使用了Future模型。使用的是jdk自带的ExecutorService线程池和FutureTask任务。
+
+备注： 
+- Future模型：https://blog.csdn.net/lmdcszh/article/details/39696357
+- Master-Worker模式：https://blog.csdn.net/lmdcszh/article/details/39698189
+- 生产者-消费模式：https://blog.csdn.net/lmdcszh/article/details/39699261
+
+
+
+
+
 ###3、一个主线程A创建了多个子线程C1、C2、C3...主线程A 等待所有的子线程C1、C2、C3..执行完成后才继续执行，请写出Java 都有哪些实现方式。
 
 ###4、请写出你了解的系统间的通信方式及其特点和在项目中应用了哪些通信方式。
