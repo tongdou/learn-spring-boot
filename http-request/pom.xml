@@ -8,11 +8,11 @@
         <version>2.1.1.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example</groupId>
-    <artifactId>demo</artifactId>
+    <groupId>com.tongdou</groupId>
+    <artifactId>http-request</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>demo</name>
+    <name>http-request</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>

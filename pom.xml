@@ -18,6 +18,8 @@
     <modules>
         <module>design-pattern</module>
         <module>interview-question</module>
+        <module>web</module>
+        <module>http-request</module>
     </modules>
 
     <properties>
