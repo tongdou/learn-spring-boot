@@ -1477,7 +1477,7 @@ var PDFViewerApplication = {
     };
     window.addEventListener('wheel', webViewerWheel);
     window.addEventListener('click', webViewerClick);
-    window.addEventListener('keydown', webViewerKeyDown);
+    /*window.addEventListener('keydown', webViewerKeyDown);*/
     window.addEventListener('resize', _boundEvents.windowResize);
     window.addEventListener('hashchange', _boundEvents.windowHashChange);
     window.addEventListener('beforeprint', _boundEvents.windowBeforePrint);
@@ -1533,7 +1533,7 @@ var PDFViewerApplication = {
 
     window.removeEventListener('wheel', webViewerWheel);
     window.removeEventListener('click', webViewerClick);
-    window.removeEventListener('keydown', webViewerKeyDown);
+    /*window.removeEventListener('keydown', webViewerKeyDown);*/
     window.removeEventListener('resize', _boundEvents.windowResize);
     window.removeEventListener('hashchange', _boundEvents.windowHashChange);
     window.removeEventListener('beforeprint', _boundEvents.windowBeforePrint);
@@ -1706,7 +1706,16 @@ function webViewerPageRendered(evt) {
     });
   }
 }
-function webViewerTextLayerRendered(evt) {}
+function webViewerTextLayerRendered(evt) {
+    $('#viewerContainer .page .textLayer').watermark({
+        texts: ["供应商简码", "供应商名称", "登录名"], //水印文字
+        textColor: "#000", //文字颜色
+        textFont: '14px 微软雅黑', //字体
+        width: 100, //水印文字的水平间距
+        height: 100,  //水印文字的高度间距（低于文字高度会被替代）
+        textRotate: -30 //-90到0， 负数值，不包含-90
+    });
+}
 function webViewerPageMode(evt) {
   var mode = evt.mode,
       view = void 0;
@@ -4350,7 +4359,7 @@ var defaultOptions = {
     kind: OptionKind.VIEWER
   },
   defaultUrl: {
-    value: 'compressed.tracemonkey-pldi-09.pdf',
+    value: 'jpg2pdf.pdf',
     kind: OptionKind.VIEWER
   },
   defaultZoomValue: {
@@ -4862,7 +4871,7 @@ var OverlayManager = function () {
                 this._active = name;
                 this._overlays[this._active].element.classList.remove('hidden');
                 this._overlays[this._active].container.classList.remove('hidden');
-                window.addEventListener('keydown', this._keyDownBound);
+                /*window.addEventListener('keydown', this._keyDownBound);*/
 
               case 18:
               case 'end':
@@ -13382,3 +13391,25 @@ exports.PDFPrintService = PDFPrintService;
 /***/ })
 /******/ ]);
 //# sourceMappingURL=viewer.js.map
+
+document.oncopy = function (){
+    return false;
+}
+
+document.onselectstart = function(){
+    return false;
+}
+
+document.oncontextmenu = function(){
+    return false;
+}
+
+document.onkeydown = function(){
+     return false;
+}
+
+document.onmousedown=function(){
+    if(event.button==2){
+        event.returnValue=false;
+    }
+}
