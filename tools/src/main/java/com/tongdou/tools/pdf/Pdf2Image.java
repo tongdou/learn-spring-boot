@@ -48,7 +48,7 @@ public class Pdf2Image {
                     imgFilePath = new StringBuffer();
                     imgFilePath.append(imgFilePathPrefix);
                     imgFilePath.append("_");
-                    imgFilePath.append(String.valueOf(i + 1));
+                    imgFilePath.append(String.format("%04d", i + 1));
                     imgFilePath.append(".png");
                     File dstFile = new File(imgFilePath.toString());
                     BufferedImage image = renderer.renderImageWithDPI(i, dpi);
